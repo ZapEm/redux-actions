@@ -4,9 +4,17 @@
   "description": "Flux Standard Action utlities for Redux",
   "main": "lib/index.js",
   "scripts": {
-    "test": "make test",
-    "prepublish": "make clean build"
+    "build": "npm run clean && babel src --out-dir lib --ignore *-test.js",
+    "clean": "rimraf lib",
+    "lint": "esw src --color",
+    "lint:watch": "npm run lint -- --watch",
+    "prepublish": "npm run lint && npm run test && npm run build",
+    "test": "mocha --compilers js:babel-register src/**/*-test.js",
+    "test:watch": "npm run test -- --watch src/**/*-test.js"
   },
+  "files": [
+    "lib"
+],
   "keywords": [
     "flux",
     "redux",
