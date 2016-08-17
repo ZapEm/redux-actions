@@ -12,9 +12,6 @@
     "test": "mocha --compilers js:babel-register src/**/*-test.js",
     "test:watch": "npm run test -- --watch src/**/*-test.js"
   },
-  "files": [
-    "lib"
-],
   "keywords": [
     "flux",
     "redux",
